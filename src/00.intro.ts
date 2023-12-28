@@ -36,15 +36,16 @@ export const positiveNumbersObservable = of(-23, 543, 7, 6, 3, -234, 43).pipe(
 //
 // NOTE: Do not use `scan` operator
 export const fibonacciObservable = new Observable(function (observer) {
-    let resultToSend = 1;
-    let next = 1;
-    let last = 15;
+    let before1 = 0;
+    let before2 = 1;
+    let resultToSend = 0;
 
-    for (let i = 0; i < last; i++) {
+    for (let i = 0; i < 15; i++) {
+        resultToSend = before1 + before2;
+        before1 = before2;
+        before2 = resultToSend;
+
         observer.next(resultToSend);
-        const temp = resultToSend;
-        resultToSend = next;
-        next = temp + next;
     }
 
     observer.complete();
