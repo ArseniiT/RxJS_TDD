@@ -6,7 +6,7 @@ import {filter, map} from 'rxjs/operators';
  */
 
 // Just an observable which should send "Hello World"
-export const helloWorldObservable = of('Hello');
+export const helloWorldObservable = of('Hello World');
 
 // This one must trigger numbers from 0 to 10
 // Pro tip: You can also use `range` from RxJS
